@@ -26,70 +26,130 @@
         </nav>
     </header>
 
-    <section id="home">
-        <h1>Welcome to DBYC</h1>
-        <h2>Dream Builders Youth Collective</h2>
-        <p class="motto"><em>Dream. Build. Thrive.</em></p>
+    <!-- Home Section -->
+    <div id="home" class="home-container">
+        <div class="home-content">
+            <h1>Welcome to DBYC</h1>
+            <h2>Dream Builders Youth Collective</h2>
+            <p class="motto"><i>Dream. Build. Thrive.</i></p>
+        </div>
+    </div>
+
+    <!-- About Us Section -->
+    <section id="about" class="about-container">
+        <div class="about-content">
+            <h1>About Us</h1>
+            <p>
+                We are a movement that aims to motivate, empower, and help young people discover their dreams, develop their talents, and build a better future for themselves and their communities.
+                We believe that every young person can be successful. Through our programs, we allow young people to learn, realize themselves, and develop themselves using life skills, economic training, and social and moral education.
+            </p>
+        </div>
     </section>
 
-    <section id="about">
-        <h3>About Us</h3>
-        <p>We are a movement that aims to motivate, empower, and help young people discover their dreams...</p>
+    <!-- Vision Section -->
+    <section id="vision" class="section-container vision-container">
+        <div class="section-box vision-box">
+            <h2>Our Vision</h2>
+            <p>To see a generation of motivated, prepared, and successful young people who serve their communities with energy and knowledge.</p>
+        </div>
     </section>
 
-    <section id="vision">
-        <h2>Vision</h4>
-        <p>To see a generation of motivated, prepared, and successful young people...</p>
+    <!-- Mission Section -->
+    <section id="mission" class="section-container mission-container">
+        <div class="section-box mission-box">
+            <h2>Our Mission</h2>
+            <p>Creating an environment where young people can discover themselves, develop themselves, and achieve their dreams through education, life skills, and entrepreneurship.</p>
+        </div>
     </section>
 
-    <section id="mission">
-        <h2>Mission</h5>
-        <p>Creating an environment where young people can discover themselves...</p>
+    <!-- Core Values Section -->
+    <section id="core-values" class="section-container core-value-container">
+        <div class="section-box core-value-box">
+            <h2>Core Values</h2>
+            <ul>
+                <li><strong>Trust:</strong> We respect and foster trust in our relationships with youth, communities, and our partners.</li>
+                <li><strong>Commitment:</strong> We believe that success comes from individual efforts and collective cooperation.</li>
+                <li><strong>Creativity:</strong> We encourage young people to use their talents and be creative in solving their own and society's challenges.</li>
+                <li><strong>Values:</strong> We provide training based on values that ensure young people become good leaders and a good example for society.</li>
+                <li><strong>Constant Learning:</strong> We encourage the spirit of learning and continuous development every day in our youth.</li>
+            </ul>
+        </div>
     </section>
 
-    <section id="core-values">
-        <h2>Core Values</h6>
-        <ul>
-            <li>Trust: We respect and foster trust...</li>
-            <li>Commitment: We believe that success...</li>
-            <li>Creativity: We encourage young people...</li>
-            <li>Values: We provide training...</li>
-            <li>Constant Learning: We encourage...</li>
-        </ul>
-    </section>
-
-    <section id="join-us">
+    <!-- Join Us Section -->
+    <section id="join-us" class="join-us-container">
         <h2>Join Us</h2>
-        <p>Youth: Join us at our workshops to learn, connect, and grow.</p>
-        <p>Community: Do your part in empowering the next generation by supporting DBYC.</p>
-        <p>Donors and Stakeholders: Help us make a difference in the lives of young people.</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfh23T1QMHRW2_R13djmPvc_sjczgZL6uJR004nOCkl2-POkA/viewform" target="_blank" style="display: inline-block; background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 16px;">Join Here</a>
+        <div class="join-us-content">
+            <div class="join-us-item">
+                <h3>Youth:</h3>
+                <p>Join us at our workshops and start building your future now.</p>
+            </div>
+            <div class="join-us-item">
+                <h3>Community:</h3>
+                <p>Do your part in empowering the youth in any way you can. We welcome cooperation in achieving the dreams of our youth.</p>
+            </div>
+            <div class="join-us-item">
+                <h3>Donors and Stakeholders:</h3>
+                <p>Help us make a difference in the lives of young people by donating ideas, resources, or financial support.</p>
+            </div>
+        </div>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfh23T1QMHRW2_R13djmPvc_sjczgZL6uJR004nOCkl2-POkA/viewform" target="_blank" class="join-btn">Join Here</a>
     </section>
+
+<!-- Share With Us Section -->
+<section id="share-with-us">
+    <h2>Share With Us</h2>
     
+    
+    <div class="chat-section" id="private-chat">
+        <h3>Private Chat</h3>
+        <form action="send_message.php" method="post">
+            <textarea name="private_message" class="private-input" placeholder="Type your private message here..."></textarea>
+            <button type="submit" class="send-btn">Send Private Message</button>
+        </form>
+    </div>
+</section>
+<script>
+    document.getElementById("send").onclick = function() {
+        var message = document.getElementById("message").value;
+        if (message) {
+            // Hapa unaweza kutuma data kwa PHP, kwa mfano kutumia AJAX
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "send_message.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    alert("Message sent successfully");
+                    document.getElementById("message").value = "";  // Clear the textarea
+                }
+            };
+            xhr.send("private_message=" + message);
+        }
+    }
+</script>
 
-    <section id="share-with-us">
-        <h2>Share With Us</h2>
 
-        <div>
-            <h3>Private Chat</h3>
-            <form id="private-chat-form" action="send_private_message.php" method="POST">
-                <textarea name="private_message" placeholder="Type your private message here..." rows="5" cols="50" required></textarea>
-                <br>
-                <input type="email" name="email" placeholder="Your email (optional)" />
-                <br>
-                <button type="submit">Send Private Message</button>
-            </form>
+    <section id="contact-us">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+            <p>Email: <a href="mailto:dreambuildersyouthcollective@gmail.com" class="contact-link">dreambuildersyouthcollective@gmail.com</a></p>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/dreambuildersyouth_/#" target="_blank" class="social-icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@dreambuildersyc?is_from_webapp=1&sender_device=pc" target="_blank" class="social-icon">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="http://www.youtube.com/@DreamBuilders-226" target="_blank" class="social-icon">
+                <i class="fab fa-youtube"></i>
+            </a>
         </div>
     </section>
     
 
-    <section id="contact-us">
-        <h2>Contact Us</h9>
-        <p>Email: <a href="mailto:dreambuildersyouthcollective@gmail.com">dreambuildersyouthcollective@gmail.com</a></p>
-        <p>Instagram: <a href="https://www.instagram.com/dreambuildersyouth_/#" target="_blank">dreambuildersyouth_</a></p>
-        <p>TikTok: <a href="https://www.tiktok.com/@dreambuildersyc?is_from_webapp=1&sender_device=pc" target="_blank">dreambuildersyc</a></p>
-        <p>YouTube: <a href="https://www.youtube.com/@dreambuildersyc" target="_blank">dreambuildersyc</a></p>
-    </section>
+  
 
     <footer>
         <p>&copy; 2024 Dream Builders Youth Collective</p>
